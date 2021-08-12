@@ -1,8 +1,7 @@
-import { config } from "dotenv";
-
 import Commando from "discord.js-commando";
 import path from "path";
 
+import { config } from "dotenv";
 config();
 
 const client = new Commando.Client({
