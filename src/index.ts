@@ -1,6 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const Commando = require('discord.js-commando');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
 
 import { config } from "dotenv";
