@@ -1,5 +1,5 @@
-const { MessageEmbed } = require("discord.js");
 const { Command } = require("discord.js-commando");
+const { MessageEmbed } = require("discord.js");
 
 const commands = require('../../data/commands.json')
 
