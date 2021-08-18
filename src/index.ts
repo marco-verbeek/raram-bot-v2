@@ -1,17 +1,19 @@
-import Commando from "discord.js-commando";
-import path from "path";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const Commando = require('discord.js-commando');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require('path');
 
 import { config } from "dotenv";
 config();
 
 const client = new Commando.Client({
   owner: process.env.DISCORD_OWNER_ID,
-  commandPrefix: '!'
+  commandPrefix: '!raram '
 });
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}.`);
-});
+})
 
 client.registry
   .registerDefaultTypes()
@@ -20,11 +22,11 @@ client.registry
   .registerDefaultCommands({
     help: false,
     prefix: false,
-    ping: true,
-    eval: true,
-    unknownCommand: false,
+    ping: false,
+    eval: false,
+    unknownCommand: true,
     commandState: false,
   })
-  .registerCommandsIn(path.join(__dirname, 'commands'));
+  .registerCommandsIn(path.join(__dirname + '\\..', 'commands'));
 
 client.login(process.env.DISCORD_TOKEN);
