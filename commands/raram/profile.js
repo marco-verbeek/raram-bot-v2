@@ -1,5 +1,6 @@
 const { Command } = require("discord.js-commando");
 const { createEmbed, embedType } = require("../../utils/embed_creator");
+const { displayProfile } = require("../../utils/profile_creator");
 const axios = require("axios");
 
 module.exports = class HelpCommand extends Command {
@@ -26,13 +27,15 @@ module.exports = class HelpCommand extends Command {
     const profileReq = await axios.get('http://localhost:3000/accounts/' + msg.author.id + "/profile");
     const profile = profileReq.data;
 
-    const stats = profile.stats.toString()
+    const [col1, col2, col3] = displayProfile(profile);
 
     const embed = createEmbed(
       profile.summonerName + "'s rARAM Profile",
       "",
       embedType.Info)
-      .addField("Statistics", stats)
+      .addField("rARAM", col1, true)
+      .addField("K/D/A", col2, true)
+      .addField("Kills", col3, true)
 
     return msg.embed(embed);
   }
