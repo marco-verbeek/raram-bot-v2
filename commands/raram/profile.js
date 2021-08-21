@@ -1,5 +1,4 @@
 const { Command } = require("discord.js-commando");
-const { MessageEmbed } = require("discord.js");
 const { createEmbed, embedType } = require("../../utils/embed_creator");
 const axios = require("axios");
 
@@ -24,11 +23,16 @@ module.exports = class HelpCommand extends Command {
   }
 
   async run(msg, { profileName }) {
-    const profileReq = await axios.get('http://localhost:3000/accounts/' + msg.author.id + "/stats");
+    const profileReq = await axios.get('http://localhost:3000/accounts/' + msg.author.id + "/profile");
     const profile = profileReq.data;
-    console.log(profile);
 
-    const embed = createEmbed("rARAM Profile", "Desc", embedType.Info)
+    const stats = profile.stats.toString()
+
+    const embed = createEmbed(
+      profile.summonerName + "'s rARAM Profile",
+      "",
+      embedType.Info)
+      .addField("Statistics", stats)
 
     return msg.embed(embed);
   }
