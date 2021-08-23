@@ -2,7 +2,7 @@ const { Command } = require("discord.js-commando");
 const { createEmbed, embedType } = require("../../utils/embed_creator");
 const { MessageEmbed } = require("discord.js");
 const { displayTeamAnalysis } = require("../../utils/analysis_creator");
-const axios = require("axios");
+const { getAccount, getLastPlayedMatchId, getMatchAnalysis } = require("../../src/requests");
 
 module.exports = class AnalyseCommand extends Command {
   constructor(client) {
@@ -25,8 +25,8 @@ module.exports = class AnalyseCommand extends Command {
   }
 
   async run(msg, { gameId }) {
-    const profileReq = await axios.get('http://localhost:3000/accounts/' + msg.author.id)
-    const profile = profileReq.data
+    const discordId = msg.author.id;
+    const profile = await getAccount(discordId);
 
     if(profile === undefined || !profile.verified){
       const embed = createEmbed(
@@ -39,8 +39,7 @@ module.exports = class AnalyseCommand extends Command {
 
     // TODO: check if gameId has been provided. If it has, analyse that game instead of getting the last played game.
 
-    const lastMatchReq = await axios.get('http://localhost:3000/accounts/'  + msg.author.id + '/lastgame')
-    const lastMatch = lastMatchReq.data
+    const lastMatch = getLastPlayedMatchId(discordId);
 
     if(lastMatch.error !== undefined){
       const embed = createEmbed(
@@ -59,20 +58,20 @@ module.exports = class AnalyseCommand extends Command {
     const loadingMessage = await msg.embed(loadingEmbed)
 
     try {
-      const res = await axios.get('http://localhost:3000/analyses/' + lastMatch.matchId)
+      const res = await getMatchAnalysis(lastMatch.matchId);
       const [col1, col2, col3] = displayTeamAnalysis(res.data, profile.encryptedAccountId, loadingMessage.url)
 
       const embed = new MessageEmbed()
-      .setAuthor("Here are your rARAM stats from your last played ARAM:").
-        setColor(0x009FFF).
-        addField("Player", col1, true).
-        addField("K/D/A", col2, true).
-        addField("Rank", col3, true).
-        setFooter("Rank is only displayed for players in a rARAM queue.")
+        .setAuthor("Here are your rARAM stats from your last played ARAM:")
+        .setColor(0x009FFF)
+        .addField("Player", col1, true)
+        .addField("K/D/A", col2, true)
+        .addField("Rank", col3, true)
+        .setFooter("Rank is only displayed for players in a rARAM queue.")
 
       return loadingMessage.edit(embed)
     } catch (e) {
-      console.log(e);
+      console.error(e);
 
       const embed = createEmbed(
         "An error occurred: rARAM could not find the game with specified id.",

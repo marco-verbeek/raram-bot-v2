@@ -1,7 +1,7 @@
 const { Command } = require("discord.js-commando");
 const { createEmbed, embedType } = require("../../utils/embed_creator");
 const { displayProfile } = require("../../utils/profile_creator");
-const axios = require("axios");
+const { getProfile } = require("../../src/requests")
 
 module.exports = class HelpCommand extends Command {
   constructor(client) {
@@ -24,9 +24,7 @@ module.exports = class HelpCommand extends Command {
   }
 
   async run(msg, { profileName }) {
-    const profileReq = await axios.get('http://localhost:3000/accounts/' + msg.author.id + "/profile");
-    const profile = profileReq.data;
-
+    const profile = await getProfile(msg.author.id);
     const [col1, col2, col3] = displayProfile(profile);
 
     const embed = createEmbed(

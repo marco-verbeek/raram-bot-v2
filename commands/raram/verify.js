@@ -1,6 +1,6 @@
 const { Command } = require("discord.js-commando");
 const { createEmbed, embedType } = require('../../utils/embed_creator')
-const axios = require("axios");
+const { getAccountVerification } = require("../../src/requests");
 
 module.exports = class VerifyCommand extends Command {
   constructor(client) {
@@ -24,8 +24,7 @@ module.exports = class VerifyCommand extends Command {
 
   async run(msg, { summonerName }) {
     try {
-      const verifyReq = await axios.get('http://localhost:3000/accounts/verify/' + msg.author.id + "/" + summonerName);
-      const account = verifyReq.data;
+      const account = await getAccountVerification(msg.author.id, summonerName);
 
       // No account has been found: please specify a summonerName.
       if(account.error !== undefined){
