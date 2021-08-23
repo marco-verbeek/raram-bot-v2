@@ -3,16 +3,16 @@
 Spare-time created tool that uses my other project 'raram-backend-v2'. <br/>
 "Compare your performance to your team's using rARAM.gg!", now with a Discord bot for easy use!
 
-## Link your Discord to your League of Legends account
-<a target="_blank" href="https://gfycat.com/honestunawaregosling">
-    <img alt="Demo: Linking Discord to League acc" src="https://thumbs.gfycat.com/HonestUnawareGosling-size_restricted.gif"/>
-</a>
-
-## Game Analysis
-![Demo: Game Analysis](data/analysis_demo.png)
-
+### Link your Discord to your League of Legends account
 <p align="center">
-  <img src="/data/analysis_demo.png" width="544" alt="Demo: Game Analysis">
+    <a target="_blank" href="https://gfycat.com/honestunawaregosling">
+        <img alt="Demo: Linking Discord to League acc" src="https://thumbs.gfycat.com/HonestUnawareGosling-size_restricted.gif"/>
+    </a>
+</p>
+
+### Game Analysis
+<p align="center">
+  <img src="/data/analysis_demo.png" width="400" alt="Demo: Game Analysis">
 </p>
 
 ## License
