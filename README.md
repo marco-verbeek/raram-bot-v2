@@ -4,7 +4,9 @@ Spare-time created tool that uses my other project 'raram-backend-v2'. <br/>
 "Compare your performance to your team's using rARAM.gg!", now with a Discord bot for easy use!
 
 ## Link your Discord to your League of Legends account
-<img alt="Demo: Linking Discord to League acc" src="https://thumbs.gfycat.com/HonestUnawareGosling-size_restricted.gif"/>
+<a target="_blank" href="https://gfycat.com/honestunawaregosling">
+    <img alt="Demo: Linking Discord to League acc" src="https://thumbs.gfycat.com/HonestUnawareGosling-size_restricted.gif"/>
+</a>
 
 ## License
 
