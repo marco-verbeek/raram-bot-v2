@@ -37,17 +37,20 @@ module.exports = class AnalyseCommand extends Command {
       return msg.embed(embed)
     }
 
-    // TODO: check if gameId has been provided. If it has, analyse that game instead of getting the last played game.
+    // If there is no gameId provided along with the analyse command, analyse the last played game.
+    if(gameId === undefined){
+      const lastMatch = await getLastPlayedMatchId(discordId);
 
-    const lastMatch = await getLastPlayedMatchId(discordId);
+      if(lastMatch.error !== undefined){
+        const embed = createEmbed(
+          "An error occurred during rARAM's fetching of your last played ARAM.",
+          "Error: "+lastMatch.error,
+          embedType.Error)
 
-    if(lastMatch.error !== undefined){
-      const embed = createEmbed(
-        "An error occurred during rARAM's fetching of your last played ARAM.",
-        "Error: "+lastMatch.error,
-        embedType.Error)
+        return msg.embed(embed)
+      }
 
-      return msg.embed(embed)
+      gameId = lastMatch.gameId;
     }
 
     const loadingEmbed = new MessageEmbed()
@@ -58,7 +61,7 @@ module.exports = class AnalyseCommand extends Command {
     const loadingMessage = await msg.embed(loadingEmbed)
 
     try {
-      const analysis = await getMatchAnalysis(lastMatch.matchId);
+      const analysis = await getMatchAnalysis(gameId);
       const [col1, col2, col3] = displayTeamAnalysis(analysis, profile.encryptedAccountId, loadingMessage.url)
 
       const embed = new MessageEmbed()
