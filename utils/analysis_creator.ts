@@ -1,4 +1,4 @@
-const { champ_icon, random_rank_icon } = require('../utils/icons_creator')
+const { champ_icon } = require('../utils/icons_creator')
 
 function formatLpGain(lpGain: number): string {
   return (lpGain >= 0 ? "+" : "") + lpGain
@@ -55,12 +55,17 @@ export function displayTeamAnalysis(analysis: JSON, accountId: number, msgUrl?: 
 
     const gainExplanation = winLoseExplained + "\n" + kpExplained + "\n" + deathsExplained + "\n\n" + DTHexplained + "\n" + dmgDoneExplained + "\n" + dmgTakenExplained + "\n" + healExplained + "\n\n" + totalLpExplained
 
-    const rankWithLpGain = random_rank_icon() + " (" + formatLpGain(lpGain) + ")"
-    const rankWithLpGainWithHover = `[${rankWithLpGain}](${msgUrl} "${gainExplanation}")`
-
     col1 += championIcon + " | " + (isRequester ? "**" : "") + summonerName + (isRequester ? "**" : "") + "\n";
     col2 += (isRequester ? "**" : "") + (isRequester ? kdaWithHover : kda) + (isRequester ? "**" : "") + "\n";
-    col3 += (isRequester ? "**" : "") + (isRequester ? rankWithLpGainWithHover : rankWithLpGain) + (isRequester ? "**" : "") + "\n";
+
+    if('leaguePoints' in player){
+      const rankWithLpGain = player['leaguePoints'].toFixed(0) + " (" + formatLpGain(lpGain) + ")"
+      const rankWithLpGainWithHover = `[${rankWithLpGain}](${msgUrl} "${gainExplanation}")`
+
+      col3 += (isRequester ? "**" : "") + (isRequester ? rankWithLpGainWithHover : rankWithLpGain) + (isRequester ? "**" : "") + "\n";
+    } else {
+      col3 += " \n";
+    }
   }
 
   return [col1, col2, col3];

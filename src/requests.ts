@@ -2,7 +2,6 @@ import axios from "axios";
 
 const instance = axios.create({
   baseURL: process.env.BACKEND_BASE_URL,
-  timeout: 1000,
 })
 
 const getProfile = (discordId: string) => {
@@ -25,7 +24,7 @@ const getLastPlayedMatchId = (discordId: string) => {
 
 const getMatchAnalysis = (matchId: string) => {
   return instance
-    .get("/analyses/" + matchId)
+    .get("/analyses/" + matchId, {timeout: 10000})
     .then(response => response.data);
 }
 

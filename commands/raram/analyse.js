@@ -39,7 +39,7 @@ module.exports = class AnalyseCommand extends Command {
 
     // TODO: check if gameId has been provided. If it has, analyse that game instead of getting the last played game.
 
-    const lastMatch = getLastPlayedMatchId(discordId);
+    const lastMatch = await getLastPlayedMatchId(discordId);
 
     if(lastMatch.error !== undefined){
       const embed = createEmbed(
@@ -58,15 +58,15 @@ module.exports = class AnalyseCommand extends Command {
     const loadingMessage = await msg.embed(loadingEmbed)
 
     try {
-      const res = await getMatchAnalysis(lastMatch.matchId);
-      const [col1, col2, col3] = displayTeamAnalysis(res.data, profile.encryptedAccountId, loadingMessage.url)
+      const analysis = await getMatchAnalysis(lastMatch.matchId);
+      const [col1, col2, col3] = displayTeamAnalysis(analysis, profile.encryptedAccountId, loadingMessage.url)
 
       const embed = new MessageEmbed()
         .setAuthor("Here are your rARAM stats from your last played ARAM:")
         .setColor(0x009FFF)
         .addField("Player", col1, true)
         .addField("K/D/A", col2, true)
-        .addField("Rank", col3, true)
+        .addField("League Points", col3, true)
         .setFooter("Rank is only displayed for players in a rARAM queue.")
 
       return loadingMessage.edit(embed)
