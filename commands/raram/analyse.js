@@ -74,7 +74,7 @@ module.exports = class AnalyseCommand extends Command {
 
       return loadingMessage.edit(embed)
     } catch (e) {
-      //console.error(e);
+      console.error(e);
 
       const embed = createEmbed(
         "An error occurred: rARAM could not find the game with specified id.",
