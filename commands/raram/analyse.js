@@ -38,7 +38,7 @@ module.exports = class AnalyseCommand extends Command {
     }
 
     // If there is no gameId provided along with the analyse command, analyse the last played game.
-    if(gameId === undefined){
+    if(isNaN(parseInt(gameId))){
       const lastMatch = await getLastPlayedMatchId(discordId);
 
       if(lastMatch.error !== undefined){
@@ -50,7 +50,7 @@ module.exports = class AnalyseCommand extends Command {
         return msg.embed(embed)
       }
 
-      gameId = lastMatch.gameId;
+      gameId = lastMatch.matchId;
     }
 
     const loadingEmbed = new MessageEmbed()
@@ -74,7 +74,7 @@ module.exports = class AnalyseCommand extends Command {
 
       return loadingMessage.edit(embed)
     } catch (e) {
-      console.error(e);
+      //console.error(e);
 
       const embed = createEmbed(
         "An error occurred: rARAM could not find the game with specified id.",
