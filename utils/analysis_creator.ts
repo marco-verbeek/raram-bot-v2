@@ -64,7 +64,7 @@ export function displayTeamAnalysis(analysis: JSON, accountId: number, msgUrl?: 
 
       col3 += (isRequester ? "**" : "") + (isRequester ? rankWithLpGainWithHover : rankWithLpGain) + (isRequester ? "**" : "") + "\n";
     } else {
-      col3 += " \n";
+      col3 += "- \n";
     }
   }
 
