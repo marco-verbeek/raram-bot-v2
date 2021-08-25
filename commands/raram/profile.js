@@ -24,19 +24,24 @@ module.exports = class HelpCommand extends Command {
   }
 
   async run(msg, { profileName }) {
-    const id = (profileName !== undefined && profileName !== "") ? profileName : msg.author.id;
-    
-    const profile = await getProfile(id);
-    const [col1, col2, col3] = displayProfile(profile);
+    try {
+      const id = (profileName !== undefined && profileName !== "") ? profileName : msg.author.id;
 
-    const embed = createEmbed(
-      profile.summonerName + "'s rARAM Profile",
-      "",
-      embedType.Info)
+      const profile = await getProfile(id);
+      const [col1, col2, col3] = displayProfile(profile);
+
+      const embed = createEmbed(
+        profile.summonerName + "'s rARAM Profile",
+        "",
+        embedType.Info)
       .addField("rARAM", col1, true)
       .addField("K/D/A", col2, true)
       .addField("Kills", col3, true)
 
-    return msg.embed(embed);
+      return msg.embed(embed);
+    } catch (e) {
+      const embed = createEmbed("Could not find a matching profile.", "Are you sure this is the correct summoner name?\nPlease use `!raram profile <summonerName>`", embedType.Error)
+      return msg.embed(embed);
+    }
   }
 };
