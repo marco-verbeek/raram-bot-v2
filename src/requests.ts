@@ -10,9 +10,9 @@ const getProfile = (discordId: string) => {
     .then(response => response.data);
 }
 
-const getAccount = (discordId: string) => {
+const getAccount = (id: string) => {
   return instance
-    .get("/accounts/" + discordId)
+    .get("/accounts/" + id)
     .then(response => response.data);
 }
 

@@ -24,7 +24,9 @@ module.exports = class HelpCommand extends Command {
   }
 
   async run(msg, { profileName }) {
-    const profile = await getProfile(msg.author.id);
+    const id = (profileName !== undefined && profileName !== "") ? profileName : msg.author.id;
+    
+    const profile = await getProfile(id);
     const [col1, col2, col3] = displayProfile(profile);
 
     const embed = createEmbed(
