@@ -4,7 +4,7 @@ export function displayProfile(profile: JSON): string[] {
 
   col1 = `Games played: ${stats["rankedGames"]}
           Games won: ${stats["wins"]}
-          League Points: ${stats["leaguePoints"]}
+          League Points: ${stats["leaguePoints"].toFixed(0)}
           Rank: WIP
           Gold Earned: ${stats["goldEarned"]}
           Gold Spent: ${stats["goldSpent"]}`;
