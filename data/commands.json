@@ -2,5 +2,6 @@
   "!raram .": "displays an analysis of your last game.",
   "!raram help": "displays all commands and their description",
   "!raram profile": "displays your rARAM profile.",
+  "!raram profile <name>": "displays the rARAM profile of another player.",
   "!raram verify <name>": "links your Discord to your LoL account"
 }
