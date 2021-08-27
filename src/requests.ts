@@ -4,9 +4,9 @@ const instance = axios.create({
   baseURL: process.env.BACKEND_BASE_URL,
 })
 
-const getProfile = (discordId: string) => {
+const getProfile = (id: string) => {
   return instance
-    .get("/accounts/" + discordId + "/profile")
+    .get("/stats/summoners/" + id)
     .then(response => response.data);
 }
 
@@ -18,7 +18,7 @@ const getAccount = (id: string) => {
 
 const getLastPlayedMatchId = (discordId: string) => {
   return instance
-    .get("/accounts/" + discordId + "/lastgame")
+    .get("/accounts/" + discordId + "/last-game")
     .then(response => response.data);
 }
 
