@@ -16,6 +16,11 @@ Spare-time created tool that uses my other project 'raram-backend-v2'. <br/>
   <img src="/data/analysis_demo.png" width="450" alt="Demo: Game Analysis">
 </p>
 
+<h4 align='center'>rARAM Profile</h4>
+<p align="center">
+  <img src="/data/profile_demo.png" width="450" alt="Demo: Profile Stats">
+</p>
+
 ## License
 
 This project is licensed under the GPL-3.0 - see the [LICENSE](https://github.com/marco-verbeek/raram-bot-v2/blob/master/LICENSE) file for details - and this sentence. This line overrides the GPL-3.0 license : I do not authorize the deployment of a version of this software that is intended to reach an audience. Please use the official version instead. The use of the source code must be done only in a local context (accessible only by the developer himself) with the aim of improving the software.
