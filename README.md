@@ -11,13 +11,9 @@ Spare-time created tool that uses my other project 'raram-backend-v2'. <br/>
     </a>
 </p>
 
-<h4 align='center'>Game analysis</h4>
+<h4 align='center'>Game analysis and rARAM Profiles</h4>
 <p align="center">
   <img src="/data/analysis_demo.png" width="450" alt="Demo: Game Analysis">
-</p>
-
-<h4 align='center'>rARAM Profile</h4>
-<p align="center">
   <img src="/data/profile_demo.png" width="450" alt="Demo: Profile Stats">
 </p>
 
