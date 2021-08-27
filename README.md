@@ -1,7 +1,8 @@
-# rARAM Discord Bot v2
-
+<h1 align="center">rARAM Discord Bot v2</h1>
+<hr>
 Spare-time created tool that uses my other project 'raram-backend-v2'. <br/>
 "Compare your performance to your team's using rARAM.gg!", now with a Discord bot for easy use!
+<br/>
 <br/>
 
 | Linking Accounts | Game Analysis | rARAM Profiles |
