@@ -5,10 +5,13 @@ Spare-time created tool that uses my other project 'raram-backend-v2'. <br/>
 <br/>
 <br/>
 
-| Linking Accounts | Game Analysis | rARAM Profiles |
-|---|---|---|
-| <a target="_blank" href="https://gfycat.com/honestunawaregosling"> <img alt="Demo: Linking Discord to League acc" src="https://thumbs.gfycat.com/HonestUnawareGosling-size_restricted.gif"/> </a> | <img src="/data/analysis_demo.png" width="450" alt="Demo: Game Analysis"> | <img src="/data/profile_demo.png" width="450" alt="Demo: Profile Stats"> |
+| Linking Accounts | Game Analysis | 
+|---|---|
+| <a target="_blank" href="https://gfycat.com/honestunawaregosling"> <img alt="Demo: Linking Discord to League acc" src="https://thumbs.gfycat.com/HonestUnawareGosling-size_restricted.gif"/> </a> | <img src="/data/analysis_demo.png" width="450" alt="Demo: Game Analysis"> |
 
+| rARAM Profiles | Champion Stats |
+|---|---|
+| <img src="/data/profile_demo.png" width="450" alt="Demo: Profile Stats"> | <img src="/data/champ_stats_demo.png" width="450" alt="Demo: Champion Stats"> |
 
 ## License
 This project is licensed under the GPL-3.0 - see the [LICENSE](https://github.com/marco-verbeek/raram-bot-v2/blob/master/LICENSE) file for details - and this sentence. This line overrides the GPL-3.0 license : I do not authorize the deployment of a version of this software that is intended to reach an audience. Please use the official version instead. The use of the source code must be done only in a local context (accessible only by the developer himself) with the aim of improving the software.
