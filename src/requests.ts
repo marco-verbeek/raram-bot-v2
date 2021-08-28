@@ -34,10 +34,17 @@ const getAccountVerification = (discordId: string, summonerName: string) => {
     .then(response => response.data);
 }
 
+const getChampionStats = (championName: string) => {
+  return instance
+    .get("/stats/champions/" + championName)
+    .then(response => response.data);
+}
+
 export {
   getProfile,
   getAccount,
   getLastPlayedMatchId,
   getMatchAnalysis,
-  getAccountVerification
+  getAccountVerification,
+  getChampionStats
 }

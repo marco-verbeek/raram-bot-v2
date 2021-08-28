@@ -3,7 +3,7 @@ const { createEmbed, embedType } = require("../../utils/embed_creator");
 const { displayProfile } = require("../../utils/profile_creator");
 const { getProfile } = require("../../src/requests")
 
-module.exports = class HelpCommand extends Command {
+module.exports = class ProfileCommand extends Command {
   constructor(client) {
     super(client, {
       name: 'profile',
