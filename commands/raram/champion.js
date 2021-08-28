@@ -39,7 +39,7 @@ module.exports = class ChampionCommand extends Command {
 
       return msg.embed(embed);
     } catch (e) {
-      const embed = createEmbed("Could not find a matching champion.", "Are you sure this is a correct champion name?\nPlease use `!raram champion <championName>`", embedType.Error)
+      const embed = createEmbed("Could not find a matching champion.", "Are you sure this is a correct champion name and that it has been played before?\nPlease use `!raram champion <championName>`", embedType.Error)
       return msg.embed(embed);
     }
   }

@@ -9,12 +9,9 @@ export function displayChampStats(championStats: JSON): string[] {
           Avg Damage Taken: ${championStats["totalDamageTaken"] / championStats["gamesPlayed"]}
           Avg Healing Done: ${championStats["totalHealed"] / championStats["gamesPlayed"]}`;
 
-  col3 = `TODO`;
-
-  /*
-  for(let i=0; i<3; i++){
-    col3 += championStats["players"][i] + ", " +  "x\n";
-  }*/
+  Object.keys(championStats["players"]).forEach((key) => {
+    col3 += key + ", " + championStats["players"][key] + "x\n";
+  })
 
   return [col1, col2, col3];
 }
