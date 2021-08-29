@@ -3,5 +3,6 @@
   "!raram help": "displays all commands and their description",
   "!raram profile": "displays your rARAM profile.",
   "!raram profile <name>": "displays the rARAM profile of another player.",
+  "!raram champion <name>": "displays the rARAM Stats of a champion.",
   "!raram verify <name>": "links your Discord to your LoL account"
 }
