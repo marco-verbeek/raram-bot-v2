@@ -12,9 +12,9 @@ export function displayProfile(profile: JSON): string[] {
   col2 = `Kills: ${stats["kills"]}
           Deaths: ${stats["deaths"]}
           Assists: ${stats["assists"]}
-          Damage Dealt: ${stats["damageDealt"]}
-          Damage Taken: ${stats["damageTaken"]}
-          Healed: ${stats["healed"]}`;
+          Damage Dealt: ${stats["damageDealt"].toFixed(0)}
+          Damage Taken: ${stats["damageTaken"].toFixed(0)}
+          Healed: ${stats["healed"].toFixed(0)}`;
 
   col3 = `First Bloods: ${stats["firstBloods"]}
           Double kills: ${stats["doubleKills"]}
