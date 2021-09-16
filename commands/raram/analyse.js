@@ -62,7 +62,7 @@ module.exports = class AnalyseCommand extends Command {
 
     try {
       const analysis = await getMatchAnalysis(gameId);
-      const [col1, col2, col3] = displayTeamAnalysis(analysis, profile.encryptedAccountId, loadingMessage.url)
+      const [col1, col2, col3] = displayTeamAnalysis(analysis, profile.summonerName, loadingMessage.url)
 
       const embed = new MessageEmbed()
         .setAuthor("Here are your rARAM stats from your last played ARAM:")
