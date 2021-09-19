@@ -1,17 +1,25 @@
 const Commando = require('discord.js-commando');
 const path = require('path');
 
-import { config } from "dotenv";
+const Analyse = require('../commands/raram/analyse');
+
+import { config } from 'dotenv';
 config();
 
 const client = new Commando.Client({
   owner: process.env.DISCORD_OWNER_ID,
-  commandPrefix: '!raram '
+  commandPrefix: '!raram ',
 });
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}.`);
-})
+});
+
+client.on('message', (message) => {
+  if (message.content === '!raram') {
+    new Analyse(client).run(message, { gameId: undefined });
+  }
+});
 
 client.registry
   .registerDefaultTypes()
