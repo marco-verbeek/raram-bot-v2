@@ -21,6 +21,7 @@ module.exports = class HelpCommand extends Command {
     .setColor(0x00b3ff)
     .addField("Command", displayCommands, true)
     .addField("Description", Object.values(commands).join("\n"), true)
+    .setFooter("rARAM isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.")
 
     return msg.embed(embed);
   }
