@@ -38,7 +38,7 @@ module.exports = class AnalyseCommand extends Command {
     }
 
     // If there is no gameId provided along with the analyse command, analyse the last played game.
-    if(isNaN(parseInt(gameId))){
+    if(gameId === undefined || gameId === null){
       const lastMatch = await getLastPlayedMatchId(discordId);
 
       if(lastMatch.error !== undefined){
