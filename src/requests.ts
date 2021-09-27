@@ -40,6 +40,10 @@ const getChampionStats = (championName: string) => {
     .then((response) => response.data);
 };
 
+const getLeaderboards = () => {
+  return instance.get('/leaderboards').then((response) => response.data);
+};
+
 export {
   getProfile,
   getAccount,
@@ -47,4 +51,5 @@ export {
   getMatchAnalysis,
   getAccountVerification,
   getChampionStats,
+  getLeaderboards,
 };
