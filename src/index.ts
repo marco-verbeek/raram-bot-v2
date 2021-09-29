@@ -33,6 +33,6 @@ client.registry
     unknownCommand: false,
     commandState: false,
   })
-  .registerCommandsIn(path.join(__dirname + '\\..', 'commands'));
+  .registerCommandsIn(path.join(__dirname + '/..', 'commands'));
 
 client.login(process.env.DISCORD_TOKEN);
